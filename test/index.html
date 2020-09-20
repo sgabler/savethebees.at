@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>savethebees.at</title>
+
+    <link rel="stylesheet" href="styles/colorbox.css"/>
+    <link rel="stylesheet" href="styles/style.css"/>
+
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery.colorbox.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            var marginString = ((($(window).height() - $('#wrapper img').height()) / 2));
+
+            // set the wrapper width and height to match the img size
+            $('#wrapper').css({
+                'width':$('#wrapper img').width(), 'height':$('#wrapper img').height(),
+                'margin-top':marginString, 'margin-left':"auto", 'margin-right':"auto"
+            });
+
+            $('#sidebar').css({
+                'height':($(window).height() - 13)
+            });
+
+
+            //tooltip direction
+            var tooltipDirection;
+
+            for (i = 0; i < $(".pin").length; i++) {
+                // set tooltip direction type - up or down
+                if ($(".pin").eq(i).hasClass('pin-down')) {
+                    tooltipDirection = 'tooltip-down';
+                } else if ($(".pin").eq(i).hasClass('pin-up')) {
+                    tooltipDirection = 'tooltip-up';
+                } else if ($(".pin").eq(i).hasClass('pin-left')) {
+                    tooltipDirection = 'tooltip-left';
+                } else {
+                    tooltipDirection = 'tooltip-right';
+                }
+
+                // append the tooltip
+                $("#wrapper").append("<div style='left:" + $(".pin").eq(i).data('xpos') + "px;top:" + $(".pin").eq(i).data('ypos') + "px' class='" + tooltipDirection + "'>\
+													<div class='tooltip'>" + $(".pin").eq(i).html() + "</div>\
+											</div>");
+            }
+
+            // show/hide the tooltip
+            $('.tooltip-up, .tooltip-down, .tooltip-left, .tooltip-right').mouseenter(function () {
+                $(this).children('.tooltip').fadeIn(100);
+            }).mouseleave(function () {
+                        $(this).children('.tooltip').fadeOut(100);
+                    })
+        });
+
+        $(window).resize(function () {
+
+            $('#sidebar').css({
+                'height':($(window).height() - 13)
+            });
+
+            var marginString = ((($(window).height() - $('#wrapper img').height()) / 2));
+            $('#wrapper').css({
+                'margin-top':marginString, 'margin-left':"auto", 'margin-right':"auto"
+            });
+        });
+
+        $(document).ready(function () {
+            //Examples of how to assign the ColorBox event to elements
+            $(".group1").colorbox({rel:'group1', maxHeight:"90%", rel: 'nofollow'});
+            $(".inline").colorbox({inline:true, width:"33%"});
+        });
+
+        $(document).ready(function () {
+            $('#savethebees-pic').click(
+                    function () {
+                        var backgroundColor = 'rgb('
+                                + (Math.floor(Math.random() * 256)) + ','
+                                + (Math.floor(Math.random() * 256)) + ','
+                                + (Math.floor(Math.random() * 256)) + ')';
+
+                        $('#cboxOverlay').css({
+                            background:backgroundColor
+                        });
+                    }
+            );
+
+            $('a.inline').click(
+                    function () {
+                        var backgroundColor = 'rgb('
+                                + (Math.floor(Math.random() * 256)) + ','
+                                + (Math.floor(Math.random() * 256)) + ','
+                                + (Math.floor(Math.random() * 256)) + ')';
+
+                        $('#cboxOverlay').css({
+                            background:backgroundColor
+                        });
+                    }
+            );
+
+            $('a.group1').click(
+                    function () {
+                        $('#cboxOverlay').css({
+                            background: '#AAA'
+                        });
+                    }
+            );
+        });
+
+    </script>
+
+</head>
+
+<body>
+<div id="container">
+
+<div id="center" class="column">
+    <div id="wrapper">
+        <img width="529" height="660" src="pics/bee_anatomy_660.png" alt="Anatomy of a bee">
+
+        <div class="pin pin-left" data-xpos="0" data-ypos="461"> <!--1-->
+            <span class="highlight">Zunge</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="429"> <!--2-->
+            <span class="highlight">M&uuml;ndung der Hinterkieferdr&uuml;se</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="402"> <!--3-->
+            <span class="highlight">Unterkiefer</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="383"> <!--4-->
+            <span class="highlight">Hauptmandibeln</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="370"> <!--5-->
+            <span class="highlight">Oberlippe</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="357"> <!--6-->
+            <span class="highlight">Unterlippe</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="343"> <!--7-->
+            <span class="highlight">Mandibeldr&uuml;se (Oberkieferdr&uuml;se)</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="329"> <!--8-->
+            <span class="highlight">Hintere Mandibeldr&uuml;se</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="311"> <!--9-->
+            <span class="highlight">Mund&ouml;ffnung (Schlund)</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="288"> <!--10-->
+            <span class="highlight">Futtersaftdr&uuml;se</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="263"> <!--11-->
+            <span class="highlight">Gehirn</span>
+        </div>
+        <div class="pin pin-left" data-xpos="0" data-ypos="230"> <!--12-->
+            <span class="highlight">Punktaugen</span>
+        </div>
+        <div class="pin pin-left" data-xpos="113" data-ypos="198"> <!--13-->
+            <span class="highlight">Brustspeicheldr&uuml;sen</span>
+        </div>
+        <div class="pin pin-down" data-xpos="143" data-ypos="185"> <!--14-->
+            <span class="highlight">Brustmuskeln</span>
+        </div>
+        <div class="pin pin-down" data-xpos="178" data-ypos="177"> <!--15-->
+            <span class="highlight">Flugspange</span>
+        </div>
+        <div class="pin pin-left" data-xpos="204" data-ypos="129"> <!--16-->
+            <span class="highlight">Vorderfl&uuml;gel</span>
+        </div>
+        <div class="pin pin-right" data-xpos="426" data-ypos="179"> <!--17-->
+            <span class="highlight">Hinterfl&uuml;gel</span>
+        </div>
+        <div class="pin pin-right" data-xpos="392" data-ypos="217"> <!--18-->
+            <div style="margin-top:-10px; margin-left:-5px"><span class="highlight">Herzschlauch</span></div>
+        </div>
+        <div class="pin pin-right" data-xpos="421" data-ypos="225"> <!--19-->
+            <div style="margin-top:-10px; margin-left:-5px"><span class="highlight">Stigmata</span></div>
+        </div>
+        <div class="pin pin-right" data-xpos="441" data-ypos="235"> <!--20-->
+            <span class="highlight">Luftsack</span>
+        </div>
+        <div class="pin pin-right" data-xpos="452" data-ypos="253"> <!--21-->
+            <div style="margin-top:-10px; margin-left:-5px"><span class="highlight">Mitteldarm</span></div>
+        </div>
+        <div class="pin pin-right" data-xpos="476" data-ypos="255"> <!--22-->
+            <span class="highlight">Herzklappen</span>
+        </div>
+        <div class="pin pin-right" data-xpos="485" data-ypos="282"> <!--23-->
+            <span class="highlight">D&uuml;nndarm</span>
+        </div>
+        <div class="pin pin-right" data-xpos="516" data-ypos="324"> <!--24-->
+            <span class="highlight">Nasonov Duftdr&uuml;se</span>
+        </div>
+        <div class="pin pin-right" data-xpos="518" data-ypos="357"> <!--25-->
+            <span class="highlight">Hinterleibsdr&uuml;sen</span>
+        </div>
+        <div class="pin pin-right" data-xpos="519" data-ypos="384"> <!--26-->
+            <span class="highlight">Kotblase</span>
+        </div>
+        <div class="pin pin-right" data-xpos="519" data-ypos="415"> <!--27-->
+            <span class="highlight">After</span>
+        </div>
+        <div class="pin pin-right" data-xpos="467" data-ypos="466"> <!--28-->
+            <span class="highlight">Stachelscheide</span>
+        </div>
+        <div class="pin pin-up" data-xpos="441" data-ypos="469"> <!--29-->
+            <span class="highlight">Giftblase</span>
+        </div>
+        <div class="pin pin-up" data-xpos="416" data-ypos="465"> <!--30-->
+            <span class="highlight">Bogen des Stachelkanals</span>
+        </div>
+        <div class="pin pin-up" data-xpos="405" data-ypos="449"> <!--31-->
+            <span class="highlight">Giftdr&uuml;sen</span>
+        </div>
+        <div class="pin pin-up" data-xpos="396" data-ypos="434"> <!--32-->
+            <span class="highlight">Kleine Dr&uuml;se</span>
+        </div>
+        <div class="pin pin-up" data-xpos="390" data-ypos="419"> <!--33-->
+            <span class="highlight">Samenblase</span>
+        </div>
+        <div class="pin pin-up" data-xpos="344" data-ypos="441"> <!--34-->
+            <div style="margin-left:-22px"><span class="highlight">Wachsdr&uuml;sen</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="329" data-ypos="429"> <!--35-->
+            <div style="margin-left:-40px"><span class="highlight">Bauchmark</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="318" data-ypos="417"> <!--36-->
+            <div style="margin-left:-60px"><span class="highlight">Ventilschlauch</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="304" data-ypos="416"> <!--37-->
+            <div style="margin-left:-30px"><span class="highlight">Ventiltrichter</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="282" data-ypos="418"> <!--38-->
+            <span class="highlight">Mageneingang</span>
+        </div>
+        <div class="pin pin-up" data-xpos="264" data-ypos="418"> <!--39-->
+            <span class="highlight">Honigmagen</span>
+        </div>
+        <div class="pin pin-up" data-xpos="247" data-ypos="411"> <!--40-->
+            <span class="highlight">Herzschlinge<br/>Hauptschlagader</span>
+        </div>
+        <div class="pin pin-up" data-xpos="206" data-ypos="410"> <!--41-->
+            <div style="margin-left:22px"><span class="highlight">Speiser&ouml;hre</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="184" data-ypos="409"> <!--42-->
+            <div style="margin-left:75px"><span class="highlight">Nervenstrang</span></div>
+        </div>
+        <div class="pin pin-up" data-xpos="155" data-ypos="436"> <!--43-->
+            <div style="margin-right:12px"><span class="highlight">Kiefer</span></div>
+        </div>
+        <div class="pin pin-left" data-xpos="313" data-ypos="502"> <!--44-->
+            <span class="highlight">Pollenb&uuml;rste</span>
+        </div>
+        <div class="pin pin-up" data-xpos="235" data-ypos="355"> <!--a-->
+            <span class="highlight">H&uuml;fte</span>
+        </div>
+        <div class="pin pin-up" data-xpos="257" data-ypos="384"> <!--b-->
+            <span class="highlight">Oberschenkelring</span>
+        </div>
+        <div class="pin pin-up" data-xpos="305" data-ypos="393"> <!--c-->
+            <span class="highlight">Oberschenkel</span>
+        </div>
+        <div class="pin pin-left" data-xpos="386" data-ypos="473"> <!--d-->
+            <span class="highlight">Schiene</span>
+        </div>
+        <div class="pin pin-right" data-xpos="392" data-ypos="595"> <!--e-->
+            <span class="highlight">Pfote mit 5 Artikulationen und Klauen</span>
+        </div>
+        <div class="pin pin-right" data-xpos="394" data-ypos="612"> <!--f-->
+            <span class="highlight">Pfote mit 5 Artikulationen und Klauen</span>
+        </div>
+        <div class="pin pin-right" data-xpos="394" data-ypos="623"> <!--g-->
+            <span class="highlight">Pfote mit 5 Artikulationen und Klauen</span>
+        </div>
+        <div class="pin pin-right" data-xpos="394" data-ypos="637"> <!--h-->
+            <span class="highlight">Pfote mit 5 Artikulationen und Klauen</span>
+        </div>
+
+    </div>
+</div>
+
+<div id="left" class="column">
+
+</div>
+
+<div id="right" class="column">
+    <div id="sidebar">
+        <div id="sidebar-content">
+            <ul>
+                <li><a class='inline' href="#rsteiner">Rudolf Steiner</a></li>
+                <li><a class='inline' href="#jbeuys">Joseph Beuys</a></li>
+                <li>J. W. von Goethe</li>
+                <li>Karl von Frisch</li>
+                <li>Bruder Adam</li>
+                <li>Ludwig Wittgenstein</li>
+                <li>Lise Meitner</li>
+                <li>Sophia Loren</li>
+                <li>Jacob Grimm</li>
+                <li>Dalai Lama</li>
+                <li>Albert Einstein</li>
+                <li>William Blake</li>
+                <li><a class='group1' href="pics/duerer_cupid.jpg">Albrecht Duerer</a></li>
+                <li>Lucas Cranach</li>
+                <li>J&uuml;rgen Tautz</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="quotes" style='display: none;'>
+    <div id='rsteiner' class="quotes" style='padding:10px; background:#fff;'>
+        Dies ist ein tolles Zitat. Voll cool!
+    </div>
+    <div id='jbeuys' class="quotes" style='padding:10px; background:#fff;'>
+        Dies ist ein weiteres tolles Zitat. Voll cool und geil!
+    </div>
+</div>
+
+<div id="savethebees-pic">
+    <a class="group1" href="pics/savethebees.png">
+        <img src="pics/savethebees_min.png" width="100px"/>
+    </a>
+</div>
+
+</div>
+</body>
+</html>
